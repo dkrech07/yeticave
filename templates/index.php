@@ -48,7 +48,8 @@
                         <span class="lot__cost"><?= $get_price($ads['price']) ?></span>
                     </div>
                     <div class="lot__timer timer">
-
+                      <?php $lot_time = get_lot_time($ads['lot_end_time']) ?>
+                      <?= $lot_time[0] . ':' . $lot_time[1] ?>
                     </div>
                 </div>
             </div>
