@@ -1,4 +1,5 @@
-<section class="promo">
+<main class="container">
+  <section class="promo">
     <h2 class="promo__title">Нужен стафф для катки?</h2>
     <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
     <ul class="promo__list">
@@ -34,14 +35,19 @@
     ?>
 
     <ul class="lots__list">
-      <?php foreach ($ads_list as $ads): ?>
+      <?php foreach ($ads_list as $ads_number => $ads): ?>
         <li class="lots__item lot">
             <div class="lot__image">
                 <img src="<?= $ads['image_url'] ?>" width="350" height="260" alt="<?= $ads['name'] ?>">
             </div>
             <div class="lot__info">
                 <span class="lot__category"><?= $ads['category'] ?></span>
-                <h3 class="lot__title"><a class="text-link" href="lot.html"><?= $ads['name'] ?></a></h3>
+                <h3 class="lot__title"><a class="text-link" href="lot.php?id=<?= $ads_number ?>"><?= $ads['name'] ?></a></h3>
+                <?php
+                if (isset($_GET['id'])) {
+                  print($_GET['id']);
+                }
+                 ?>
                 <div class="lot__state">
                     <div class="lot__rate">
                         <span class="lot__amount">Стартовая цена</span>
@@ -56,4 +62,5 @@
         </li>
       <?php endforeach; ?>
     </ul>
-</section>
+  </section>
+</main>
