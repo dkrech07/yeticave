@@ -4,7 +4,8 @@ require_once('data.php');
 
 function get_lot_page($id, $ads_list) {
   foreach ($ads_list as $ads_number => $ads) {
-    if (isset($id) && is_numeric($id) && $id == $ads_number) {
+    // if (isset($id) && is_numeric($id) && $id == $ads_number) {
+      if (is_numeric($id)) {
       $page_content = include_template('lot.php', ['ads_list' => $ads_list, 'id' => $id]);
 
       $layout_content = include_template('layout.php', [

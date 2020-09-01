@@ -1,4 +1,6 @@
 <?php
+  require_once('data.php');
+
   $lot_name = $_POST['lot-name'] ?? '';
   // $category = $_POST['category'] ?? '';
   // $message = $_POST['message'] ?? '';
@@ -7,8 +9,8 @@
   // $lot_step = $_POST['lot-step'] ?? '';
   // $lot_date = $_POST['lot-date'] ?? '';
 
-  function check_valid () {
-    if (!check_add_form() && $_SERVER['REQUEST_METHOD'] === 'POST') {
+  function check_valid ($ads_list) {
+    if (!check_add_form($ads_list) && $_SERVER['REQUEST_METHOD'] === 'POST') {
       return 'form--invalid';
     }
   };
@@ -37,7 +39,7 @@
       </li>
     </ul>
   </nav>
-  <form class="form form--add-lot container <?= check_valid(); ?>" action="./add-lot.php" method="post"> <!-- form--invalid -->
+  <form class="form form--add-lot container <?= check_valid($ads_list); ?>" action="./add.php" method="post"> <!-- form--invalid -->
     <h2>Добавление лота</h2>
     <div class="form__container-two">
       <div class="form__item form__item--invalid"> <!-- form__item--invalid -->

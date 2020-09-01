@@ -4,7 +4,7 @@
 
   $ads_categories = ['Доски и лыжи', 'Крепления', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
 
-  $page_content = include_template('add-lot.php', ['ads_categories' => $ads_categories, 'ads_list' => $ads_list]);
+  $page_content = include_template('add.php', ['ads_categories' => $ads_categories, 'ads_list' => $ads_list]);
 
   $layout_content = include_template('layout.php', [
      'content' => $page_content,
@@ -15,7 +15,7 @@
      'user_avatar' => $user_avatar,
   ]);
 
-  function check_add_form() {
+  function check_add_form($ads_list) {
     $required_fields = ['lot-name',]; // 'category', 'message', 'photo2', 'lot-rate', 'lot-step', 'lot-date'
     $errors = [];
 
@@ -30,26 +30,26 @@
 
     } else {
 
-    //  array_push($ads_list, [
-    //       'name' =>  $required_fields[0],
-    //       'category' => 'Новая категория',
-    //       'price' => 'Новая цена',
-    //       'image_url' => 'img/lot-6.jpg',
-    //       'lot_end_time' => get_next_day(),
-    //     ]);
+     array_push($ads_list, [
+          'name' =>  $required_fields[0],
+          'category' => 'Новая категория',
+          'price' => 'Новая цена',
+          'image_url' => 'img/lot-6.jpg',
+          'lot_end_time' => get_next_day(),
+        ]);
+
+    $new_lot_id = count($ads_list);
     //
-    // $new_lot_id = count($ads_list);
-    //
-    //   header("Location: /yeticave/lot.php?id=" . $new_lot_id);
+      header("Location: /lot.php?id=" . count($ads_list));
     //   print $new_lot_id;
 
-      print($ads_list);
+
       return true; // Были заполнены все поля формы
     }
   }
 
   print($layout_content);
-
+print(count($ads_list));
  // function check_add_form_format() {
  //   foreach ($POST as $key => $value) {
  //     if ($key == 'email') {
