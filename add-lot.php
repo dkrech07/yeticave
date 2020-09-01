@@ -29,22 +29,21 @@
       return false; // Поле не заполнено;
 
     } else {
-      // ob_end_clean();
-      // require_once('functions.php');
-      // require_once('data.php');
-      // $page_content = include_template('lot.php', []);
-      //
-      // $layout_content = include_template('layout.php', [
-      //    'content' => $page_content,
-      //    'ads_categories' => $ads_categories,
-      //    'title' => 'Добавить лот',
-      //    'is_auth' => $is_auth,
-      //    'user_name' => $user_name,
-      //    'user_avatar' => $user_avatar,
-      // ]);
-      //
-      // print $layout_content;
-      header("Location: /add-lot.php");
+
+    //  array_push($ads_list, [
+    //       'name' =>  $required_fields[0],
+    //       'category' => 'Новая категория',
+    //       'price' => 'Новая цена',
+    //       'image_url' => 'img/lot-6.jpg',
+    //       'lot_end_time' => get_next_day(),
+    //     ]);
+    //
+    // $new_lot_id = count($ads_list);
+    //
+    //   header("Location: /yeticave/lot.php?id=" . $new_lot_id);
+    //   print $new_lot_id;
+
+      print($ads_list);
       return true; // Были заполнены все поля формы
     }
   }
