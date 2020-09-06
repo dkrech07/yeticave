@@ -1,16 +1,20 @@
 <?php
-require_once('functions.php');
-require_once('data.php');
+  require_once('functions.php');
+  require_once('data.php');
 
-function get_lot_page($id, $ads_list) {
+  $id = $_GET['id'];
+
   foreach ($ads_list as $ads_number => $ads) {
-    // if (isset($id) && is_numeric($id) && $id == $ads_number) {
-      if (is_numeric($id)) {
+    if (isset($id) && is_numeric($id) && $id == $ads_number) {
       $page_content = include_template('lot.php', ['ads_list' => $ads_list, 'id' => $id]);
 
       $layout_content = include_template('layout.php', [
         'content' => $page_content,
         'title' => $ads_list[$id]['name'],
+        'ads_categories' => $ads_categories,
+        'is_auth' => $is_auth,
+        'user_name' => $user_name,
+        'user_avatar' => $user_avatar,
       ]);
 
       print($layout_content);
@@ -18,7 +22,4 @@ function get_lot_page($id, $ads_list) {
     }
   }
 
-  print('404');
-}
-
-get_lot_page($_GET['id'], $ads_list);
+  print('PAGE 404');

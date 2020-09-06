@@ -34,3 +34,19 @@ function get_lot_time($lot_end_time) {
 
   return [$hours_time_lot, $minutes_time_lot];
 };
+
+function check_add_form($ads_list) {
+  $required_fields = ['lot-name',]; // 'category', 'message', 'photo2', 'lot-rate', 'lot-step', 'lot-date'
+  $errors = [];
+
+  foreach ($required_fields as $field) {
+    if (empty($_POST[$field])) {
+      $errors[$field] = 'Поле не заполнено';
+    }
+  }
+
+  if ($errors[$field]) {
+    return false;
+  }
+
+};

@@ -1,11 +1,3 @@
-<?php
-  $is_auth = (bool) rand(0, 1);
-  $user_name = 'Дмитрий';
-  $user_avatar = 'img/user.jpg';
-
-  $ads_categories = ['Доски и лыжи', 'Крепления', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
-?>
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
