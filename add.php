@@ -2,14 +2,7 @@
   require_once('data.php');
   require_once('functions.php');
 
-    $required_fields = ['lot-name',]; // 'category', 'message', 'photo2', 'lot-rate', 'lot-step', 'lot-date'
-    $errors = [];
-
-    foreach ($required_fields as $field) {
-      if (empty($_POST[$field])) {
-        $errors[$field] = 'Поле не заполнено';
-      }
-    }
+    $errors = check_add_form();
 
     if (count($errors) > 0) {
       $page_content = include_template('add.php', []);

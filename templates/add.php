@@ -1,3 +1,18 @@
+<?php
+require_once('functions.php');
+require_once('add.php');
+
+  $errors = check_add_form();
+
+  function check_add_form_valid($field) {
+      foreach ($errors as $key => $error) {
+          if ($field == $error) {
+              reuturn 'form__item--invalid';
+          }
+      }
+  };
+
+ ?>
 
 <main>
   <nav class="nav">
