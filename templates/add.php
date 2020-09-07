@@ -5,11 +5,9 @@ require_once('add.php');
   $errors = check_add_form();
 
   function check_add_form_valid($field) {
-      foreach ($errors as $key => $error) {
-          if ($field == $error) {
-              reuturn 'form__item--invalid';
-          }
-      }
+    if ($errors[$field] == false) {
+      return ' form__item--invalid';
+    }
   };
 
  ?>
@@ -40,7 +38,7 @@ require_once('add.php');
   <form class="form form--add-lot container form--invalid" action="add.php" method="post"> <!-- form--invalid -->
     <h2>Добавление лота</h2>
     <div class="form__container-two">
-      <div class="form__item form__item--invalid"> <!-- form__item--invalid -->
+      <div class="form__item <?= check_add_form_valid('lot-name'); ?>"> <!-- form__item--invalid -->
         <label for="lot-name">Наименование</label>
         <input id="lot-name" type="text" name="lot-name" placeholder="Введите наименование лота">
         <span class="form__error">Введите наименование лота</span>

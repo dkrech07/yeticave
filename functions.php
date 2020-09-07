@@ -41,7 +41,7 @@ function check_add_form() {
 
     foreach ($required_fields as $field) {
       if (empty($_POST[$field])) {
-        $errors[$field] = 'Поле не заполнено';
+        $errors[$field] = false;
       }
     }
 

@@ -30,7 +30,7 @@
 
       $layout_content = include_template('layout.php', [
         'content' => $page_content,
-        'title' => $ads_list[$id]['name'],
+        // 'title' => $ads_list[$id]['name'],
         'ads_categories' => $ads_categories,
         'is_auth' => $is_auth,
         'user_name' => $user_name,
