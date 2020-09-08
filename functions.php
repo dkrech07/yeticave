@@ -36,13 +36,13 @@ function get_lot_time($lot_end_time) {
 };
 
 function check_add_form() {
-    $required_fields = ['lot-name',]; // 'category', 'message', 'photo2', 'lot-rate', 'lot-step', 'lot-date'
+    $required_fields = ['lot-name', 'category', 'message', 'lot-rate', 'lot-step', 'lot-date']; //  'photo2',
     $errors = [];
 
     foreach ($required_fields as $field) {
       if (empty($_POST[$field])) {
-        $errors[$field] = false;
-      }
+        $errors[$field] = 'Поле не заполнено';
+        }
     }
 
     return $errors;

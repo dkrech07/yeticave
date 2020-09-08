@@ -4,7 +4,7 @@
 
     $errors = check_add_form();
 
-    if (count($errors) > 0) {
+    if (count($errors)) {
       $page_content = include_template('add.php', []);
 
       $layout_content = include_template('layout.php', [

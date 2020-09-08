@@ -2,12 +2,25 @@
 require_once('functions.php');
 require_once('add.php');
 
-  $errors = check_add_form();
+    $lot_name = $_POST['lot-name'] ?? '';
+    $category = $_POST['category'] ?? '';
+    $message = $_POST['message'] ?? '';
+    $message = $_POST['lot-rate'] ?? '';
+    $message = $_POST['lot-step'] ?? '';
+    $message = $_POST['lot-date'] ?? '';
 
-  function check_add_form_valid($field) {
-    if ($errors[$field] == false) {
-      return ' form__item--invalid';
+  $errors = check_add_form();
+    print_r($errors['lot-name']);
+  function check_add_form_fields($field) {
+    if ($errors[$field]) {
+        return 'form__item--invalid';
     }
+  };
+
+  function check_add_form_valid($errors) {
+      if (count($errors) > 0) {
+          return 'form--invalid';
+      }
   };
 
  ?>
@@ -35,15 +48,15 @@ require_once('add.php');
       </li>
     </ul>
   </nav>
-  <form class="form form--add-lot container form--invalid" action="add.php" method="post"> <!-- form--invalid -->
+  <form class="form form--add-lot container <?= check_add_form_valid($errors); ?>" action="add.php" method="post"> <!-- form--invalid -->
     <h2>Добавление лота</h2>
     <div class="form__container-two">
-      <div class="form__item <?= check_add_form_valid('lot-name'); ?>"> <!-- form__item--invalid -->
+      <div class="form__item <?= check_add_form_fields('lot-name'); ?>"> <!-- form__item--invalid -->
         <label for="lot-name">Наименование</label>
-        <input id="lot-name" type="text" name="lot-name" placeholder="Введите наименование лота">
+        <input id="lot-name" type="text" name="lot-name" value="<?= $lot_name ?>" placeholder="Введите наименование лота">
         <span class="form__error">Введите наименование лота</span>
       </div>
-      <div class="form__item">
+      <div class="form__item <?= check_add_form_fields('category'); ?>">
         <label for="category">Категория</label>
         <select id="category" name="category" required>
           <option>Выберите категорию</option>
@@ -57,9 +70,9 @@ require_once('add.php');
         <span class="form__error">Выберите категорию</span>
       </div>
     </div>
-    <div class="form__item form__item--wide">
+    <div class="form__item form__item--wide <?= check_add_form_fields('message'); ?>">
       <label for="message">Описание</label>
-      <textarea id="message" name="message" placeholder="Напишите описание лота"></textarea>
+      <textarea id="message" name="message" value="<?= $message ?>" placeholder="Напишите описание лота"></textarea>
       <span class="form__error">Напишите описание лота</span>
     </div>
     <div class="form__item form__item--file"> <!-- form__item--uploaded -->
@@ -78,17 +91,17 @@ require_once('add.php');
       </div>
     </div>
     <div class="form__container-three">
-      <div class="form__item form__item--small">
+      <div class="form__item form__item--small <?= check_add_form_fields('lot-rate'); ?>">
         <label for="lot-rate">Начальная цена</label>
         <input id="lot-rate" type="number" name="lot-rate" placeholder="0">
         <span class="form__error">Введите начальную цену</span>
       </div>
-      <div class="form__item form__item--small">
+      <div class="form__item form__item--small <?= check_add_form_fields('lot-step'); ?>">
         <label for="lot-step">Шаг ставки</label>
         <input id="lot-step" type="number" name="lot-step" placeholder="0">
         <span class="form__error">Введите шаг ставки</span>
       </div>
-      <div class="form__item">
+      <div class="form__item <?= check_add_form_fields('lot-date'); ?>">
         <label for="lot-date">Дата окончания торгов</label>
         <input class="form__input-date" id="lot-date" type="date" name="lot-date">
         <span class="form__error">Введите дату завершения торгов</span>
