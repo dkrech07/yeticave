@@ -16,11 +16,19 @@
          'user_avatar' => $user_avatar,
         ]);
     } else {
+
+
+    if (isset($_FILES['avatar']['name'])) {
+        $path = $_FILES['avatar']['name'];
+        $res = move_uploaded_file($_FILES['avatar']['tmp_name'], 'uploads/' . $path);
+    }
+
+
       array_push($ads_list, [
         'name' => $_POST['lot-name'],
         'category' => $_POST['category'],
         'message' => $_POST['message'],
-        'image_url' => 'img/lot-5.jpg',
+        'image_url' => $path,
         'price' => $_POST['lot-rate'],
         'lot-step' => $_POST['lot-step'],
         'lot_end_time' => $_POST['lot-date'],
@@ -39,3 +47,4 @@
     }
 
     print($layout_content);
+    print_r($_FILES);
