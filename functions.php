@@ -36,7 +36,7 @@ function get_lot_time($lot_end_time) {
 };
 
 function check_add_form() {
-    $required_fields = ['category', 'photo2',]; //  ['lot-name', 'category', 'message', 'lot-rate', 'lot-step', 'lot-date']
+    $required_fields = ['category', ]; //  ['lot-name', 'category', 'message', 'lot-rate', 'lot-step', 'lot-date']
     $errors = [];
 
     foreach ($required_fields as $field) {
