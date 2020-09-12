@@ -24,10 +24,10 @@
     // }
 
     $file_name = $_FILES['photo2']['name'];
-    $file_path = __DIR__ . 'uploads/';
+    // $file_path = __DIR__ . 'uploads/';
     $file_url = 'uploads/' . $file_name;
 
-    move_uploaded_file($_FILES['photo2']['tmp_name'], $file_path . $path . $file_name);
+    move_uploaded_file($_FILES['photo2']['tmp_name'], $file_url);
 
       array_push($ads_list, [
         'name' => $_POST['lot-name'],
@@ -52,4 +52,4 @@
     }
 
     print($layout_content);
-    print("<a href='$file_url'>$file_name</a>");
+    // print("<a href='$file_url'>$file_name</a>");
