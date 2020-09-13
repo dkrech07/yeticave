@@ -5,6 +5,7 @@ require_once('add.php');
     $lot_name = $_POST['lot-name'] ?? '';
     $category = $_POST['category'] ?? '';
     $message = $_POST['message'] ?? '';
+    $photo_name = $_FILES['photo2']['name'] ?? '';
     $lot_rate = $_POST['lot-rate'] ?? '';
     $lot_step = $_POST['lot-step'] ?? '';
     $lot_date = $_POST['lot-date'] ?? '';
@@ -19,12 +20,15 @@ require_once('add.php');
       }
   };
 
+  function get_add_form_field_message($errors, $current_field) {
+    return $errors[$current_field];
+  };
+
   function check_add_form_valid($errors) {
       if (count($errors) > 0) {
           return 'form--invalid';
       }
   };
-
  ?>
 
 <main>
@@ -77,7 +81,7 @@ require_once('add.php');
       <textarea id="message" name="message" placeholder="Напишите описание лота"><?= $message;?></textarea>
       <span class="form__error">Напишите описание лота</span>
     </div>
-    <div class="form__item form__item--file"> <!-- form__item--uploaded -->
+    <div class="form__item form__item--file "> <!-- form__item--uploaded -->
       <label>Изображение</label>
       <div class="preview">
         <button class="preview__remove" type="button">x</button>
@@ -86,7 +90,7 @@ require_once('add.php');
         </div>
       </div>
       <div class="form__input-file">
-        <input class="visually-hidden" type="file" id="photo2" name="photo2" value="">
+        <input class="visually-hidden" type="file" id="photo2" name="photo2" value="<?='uploads/' . $photo_name;?>">
         <label for="photo2">
           <span>+ Добавить</span>
         </label>
@@ -96,12 +100,12 @@ require_once('add.php');
       <div class="form__item form__item--small <?= check_add_form_field($errors, 'lot-rate'); ?>">
         <label for="lot-rate">Начальная цена</label>
         <input id="lot-rate" type="number" name="lot-rate" placeholder="0" value="<?= $lot_rate ?>">
-        <span class="form__error">Введите начальную цену</span>
+        <span class="form__error"><?= get_add_form_field_message($errors, 'lot-step') ?></span>
       </div>
       <div class="form__item form__item--small <?= check_add_form_field($errors, 'lot-step'); ?>">
         <label for="lot-step">Шаг ставки</label>
         <input id="lot-step" type="number" name="lot-step" placeholder="0" value="<?= $lot_step ?>">
-        <span class="form__error">Введите шаг ставки</span>
+        <span class="form__error"><?= get_add_form_field_message($errors, 'lot-step') ?></span>
       </div>
       <div class="form__item <?= check_add_form_field($errors, 'lot-date'); ?>">
         <label for="lot-date">Дата окончания торгов</label>

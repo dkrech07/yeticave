@@ -18,16 +18,11 @@
     } else {
 
 
-    // if (isset($_FILES['photo2']['name'])) {
-    //     $path = $_FILES['photo2']['name'];
-    //     $res = move_uploaded_file($_FILES['avatar']['tmp_name'], 'uploads/' . $path);
-    // }
-
-    $file_name = $_FILES['photo2']['name'];
-    // $file_path = __DIR__ . 'uploads/';
-    $file_url = 'uploads/' . $file_name;
-
-    move_uploaded_file($_FILES['photo2']['tmp_name'], $file_url);
+    if (isset($_FILES['photo2']['name'])) {
+      $file_name = $_FILES['photo2']['name'];
+      $file_url = 'uploads/' . $file_name;
+      move_uploaded_file($_FILES['photo2']['tmp_name'], $file_url);
+    }
 
       array_push($ads_list, [
         'name' => $_POST['lot-name'],
@@ -43,7 +38,7 @@
 
       $layout_content = include_template('layout.php', [
         'content' => $page_content,
-        // 'title' => $ads_list[$id]['name'],
+        'title' => $ads_list[count($ads_list) - 1]['name'],
         'ads_categories' => $ads_categories,
         'is_auth' => $is_auth,
         'user_name' => $user_name,
@@ -52,4 +47,3 @@
     }
 
     print($layout_content);
-    // print("<a href='$file_url'>$file_name</a>");
