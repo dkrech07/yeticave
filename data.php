@@ -21,6 +21,12 @@ function get_next_day() {
    [
      'name' => '2014 Rossignol District Snowboard',
      'category' => 'Доски и лыжи',
+     'message' => 'Легкий маневренный сноуборд, готовый дать жару в любом парке, растопив
+       снег мощным щелчком и четкими дугами. Стекловолокно Bi-Ax, уложенное в двух направлениях, наделяет этот
+       снаряд отличной гибкостью и отзывчивостью, а симметричная геометрия в сочетании с классическим прогибом
+       кэмбер позволит уверенно держать высокие скорости. А если к концу катального дня сил совсем не останется,
+       просто посмотрите на Вашу доску и улыбнитесь, крутая графика от Шона Кливера еще никого не оставляла
+       равнодушным.',
      'price' => '10999',
      'image_url' => 'img/lot-1.jpg',
      'lot_end_time' => get_next_day(),
@@ -28,27 +34,34 @@ function get_next_day() {
    [
      'name' => 'DC Ply Mens 2016/2017 Snowboard',
      'category' => 'Доски и лыжи',
-     'price' => '159999',
+     'message' => 'Тестовое описание',
      'image_url' => 'img/lot-2.jpg',
+     'price' => '159999',
+     'lot-step' =>'100',
      'lot_end_time' => get_next_day(),
    ],
    [
      'name' => 'Крепление Union Contact Pro 2015 года размер L/XL',
      'category' => 'Крепления',
+     'message' => 'Тестовое описание',
      'price' => '8000',
      'image_url' => 'img/lot-3.jpg',
+     'lot-step' =>'150',
      'lot_end_time' => get_next_day(),
    ],
    [
      'name' => 'Ботинки для сноуборда DC Mutiny Charocal',
      'category' => 'Ботинки',
+     'message' => 'Тестовое описание',
      'price' => '10999',
      'image_url' => 'img/lot-4.jpg',
+     'lot-step' =>'110',
      'lot_end_time' => get_next_day(),
    ],
    [
      'name' => 'Куртка для сноуборда DC Mutiny Charocal',
      'category' => 'Доски и лыжи',
+     'message' => 'Тестовое описание',
      'price' => '7500',
      'image_url' => 'img/lot-5.jpg',
      'lot_end_time' => get_next_day(),
@@ -56,8 +69,10 @@ function get_next_day() {
    [
      'name' => 'Маска Oakley Canopy',
      'category' => 'Разное',
+     'message' => 'Тестовое описание',
      'price' => '5400',
      'image_url' => 'img/lot-6.jpg',
+     'lot-step' =>'250',
      'lot_end_time' => get_next_day(),
    ]
  ];

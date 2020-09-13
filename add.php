@@ -25,7 +25,7 @@
     }
 
       array_push($ads_list, [
-        'name' => $_POST['lot-name'],
+        'name' => $_POST['name'],
         'category' => $_POST['category'],
         'message' => $_POST['message'],
         'image_url' => $file_url,

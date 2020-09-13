@@ -16,7 +16,7 @@
   ]);
 
   function check_add_form($ads_list) {
-    // $required_fields = ['lot-name',]; // 'category', 'message', 'photo2', 'lot-rate', 'lot-step', 'lot-date'
+    // $required_fields = ['name',]; // 'category', 'message', 'photo2', 'lot-rate', 'lot-step', 'lot-date'
     // $errors = [];
     //
     // foreach ($required_fields as $field) {

@@ -2,7 +2,7 @@
 require_once('functions.php');
 require_once('add.php');
 
-    $lot_name = $_POST['lot-name'] ?? '';
+    $lot_name = $_POST['name'] ?? '';
     $category = $_POST['category'] ?? '';
     $message = $_POST['message'] ?? '';
     $photo_name = $_FILES['photo2']['name'] ?? '';
@@ -57,9 +57,9 @@ require_once('add.php');
   <form class="form form--add-lot container <?= check_add_form_valid($errors); ?>" action="add.php" method="post" enctype="multipart/form-data"> <!-- form--invalid -->
     <h2>Добавление лота</h2>
     <div class="form__container-two">
-      <div class="form__item <?= check_add_form_field($errors, 'lot-name'); ?>"> <!-- form__item--invalid -->
-        <label for="lot-name">Наименование</label>
-        <input id="lot-name" type="text" name="lot-name" placeholder="Введите наименование лота" value="<?= $lot_name ?>">
+      <div class="form__item <?= check_add_form_field($errors, 'name'); ?>"> <!-- form__item--invalid -->
+        <label for="name">Наименование</label>
+        <input id="name" type="text" name="name" placeholder="Введите наименование лота" value="<?= $lot_name ?>">
         <span class="form__error">Введите наименование лота</span>
       </div>
       <div class="form__item <?= check_add_form_field($errors, 'category'); ?>">
@@ -100,7 +100,7 @@ require_once('add.php');
       <div class="form__item form__item--small <?= check_add_form_field($errors, 'lot-rate'); ?>">
         <label for="lot-rate">Начальная цена</label>
         <input id="lot-rate" type="number" name="lot-rate" placeholder="0" value="<?= $lot_rate ?>">
-        <span class="form__error"><?= get_add_form_field_message($errors, 'lot-step') ?></span>
+        <span class="form__error"><?= get_add_form_field_message($errors, 'lot-rate') ?></span>
       </div>
       <div class="form__item form__item--small <?= check_add_form_field($errors, 'lot-step'); ?>">
         <label for="lot-step">Шаг ставки</label>
