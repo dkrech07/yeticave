@@ -18,6 +18,13 @@
       ]);
 
       print($layout_content);
+
+      $name = 'visitcount';
+      $value = 1;
+      $expire = strtotime($date);
+      $path = '/';
+      setcookie($name, $value, $expire, $path);
+
       return;
     }
   }
