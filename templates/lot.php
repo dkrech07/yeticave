@@ -1,3 +1,21 @@
+<?php
+
+    $counter_name = str_replace(' ', '_', $ads_list[$id]['name']);
+    $counter_value = 1;
+    $expire = strtotime("+30 days");
+    $path = 'localhost/';
+
+    if (isset($_COOKIE[$counter_name])) {
+        $counter_value = $_COOKIE[$counter_name];
+        $counter_value++;
+    }
+
+    setcookie($counter_name, $counter_value, $expire, $path);
+
+    print($counter_name . ' ');
+    print($counter_value);
+ ?>
+
 <main>
   <nav class="nav">
     <ul class="nav__list container">
