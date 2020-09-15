@@ -12,8 +12,13 @@
 
     setcookie($counter_id, $counter_value, $expire, $path);
 
+    $lot_history = [];
+
+    array_push($lot_history, $counter_value); // Здесь нужно будет задать id элемента;
+
     print($counter_id . ' ');
     print($counter_value);
+    print_r($lot_history);
  ?>
 
 <main>

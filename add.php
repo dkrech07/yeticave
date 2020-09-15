@@ -16,8 +16,6 @@
          'user_avatar' => $user_avatar,
         ]);
     } else {
-
-
     if (isset($_FILES['photo2']['name'])) {
       $file_name = $_FILES['photo2']['name'];
       $file_url = 'uploads/' . $file_name;
