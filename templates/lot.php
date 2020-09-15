@@ -1,18 +1,18 @@
 <?php
 
-    $counter_name = str_replace(' ', '_', $ads_list[$id]['name']);
+    $counter_id = $id;
     $counter_value = 1;
     $expire = strtotime("+30 days");
     $path = 'localhost/';
 
-    if (isset($_COOKIE[$counter_name])) {
-        $counter_value = $_COOKIE[$counter_name];
+    if (isset($_COOKIE[$counter_id])) {
+        $counter_value = $_COOKIE[$counter_id];
         $counter_value++;
     }
 
-    setcookie($counter_name, $counter_value, $expire, $path);
+    setcookie($counter_id, $counter_value, $expire, $path);
 
-    print($counter_name . ' ');
+    print($counter_id . ' ');
     print($counter_value);
  ?>
 
