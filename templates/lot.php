@@ -13,12 +13,17 @@
     setcookie($counter_id, $counter_value, $expire, $path);
 
     $lot_history = [];
+    function get_lot_count($counter_id, $counter_value, $lot_history) {
 
-    array_push($lot_history, $counter_value); // Здесь нужно будет задать id элемента;
+        $lot_count = [$counter_id, $counter_value];
+        array_push($lot_history, $lot_count);
 
-    print($counter_id . ' ');
-    print($counter_value);
-    print_r($lot_history);
+        return $lot_history;
+    }
+
+    // print($counter_id . ' ');
+    // print($counter_value);
+    print_r(get_lot_count($counter_id, $counter_value, $lot_history));
  ?>
 
 <main>
