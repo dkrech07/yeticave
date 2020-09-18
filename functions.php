@@ -44,7 +44,7 @@ function check_add_form() {
         $errors[$field] = 'Поле не заполнено';
       } else if (!is_numeric($_POST['lot-rate']) || !is_numeric($_POST['lot-step'])) {
         $errors['lot-step'] = 'Укажите числовые данные';
-      } 
+      }
       // else if ($_POST['lot-date'] <= strtotime("+1 day")) {
       //   $errors['lot-date'] = 'Укажите дату позднее сегодняшнего дня';
       // }
@@ -52,3 +52,10 @@ function check_add_form() {
 
     return $errors;
 };
+
+// function get_lot_count($counter_id, $counter_value, $lot_history) {
+//     $lot_count = [$counter_id, $counter_value];
+//     array_push($lot_history, $lot_count);
+//
+//     return $lot_history;
+// }

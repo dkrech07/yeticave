@@ -1,4 +1,7 @@
 <?php
+    // require_once('functions.php');
+
+    // $lot_history = [];
 
     $counter_id = $id;
     $counter_value = 1;
@@ -12,18 +15,12 @@
 
     setcookie($counter_id, $counter_value, $expire, $path);
 
-    $lot_history = [];
-    function get_lot_count($counter_id, $counter_value, $lot_history) {
 
-        $lot_count = [$counter_id, $counter_value];
-        array_push($lot_history, $lot_count);
 
-        return $lot_history;
-    }
-
+    // get_lot_count($counter_id, $counter_value, $lot_history);
+    // print_r(get_lot_count($counter_id, $counter_value, $lot_history));
     // print($counter_id . ' ');
     // print($counter_value);
-    print_r(get_lot_count($counter_id, $counter_value, $lot_history));
  ?>
 
 <main>
