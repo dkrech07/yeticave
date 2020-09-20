@@ -1,6 +1,6 @@
 <?php
-require_once('functions.php');
-require_once('add.php');
+require_once('./functions.php');
+require_once('./add.php');
 
     $lot_name = $_POST['name'] ?? '';
     $category = $_POST['category'] ?? '';
@@ -12,22 +12,8 @@ require_once('add.php');
 
   $errors = check_add_form();
 
-  function check_add_form_field($errors, $current_field) {
-      foreach ($errors as $key => $value) {
-          if ($key == $current_field) {
-              return 'form__item--invalid';
-          }
-      }
-  };
-
   function get_add_form_field_message($errors, $current_field) {
     return $errors[$current_field];
-  };
-
-  function check_add_form_valid($errors) {
-      if (count($errors) > 0) {
-          return 'form--invalid';
-      }
   };
  ?>
 

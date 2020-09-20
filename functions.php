@@ -39,6 +39,20 @@ function get_price($price) {
   return number_format(ceil($price), 0, '.', ' ') . ' &#x20bd';
 };
 
+function check_add_form_valid($errors) {
+    if (count($errors) > 0) {
+        return 'form--invalid';
+    }
+};
+
+function check_add_form_field($errors, $current_field) {
+    foreach ($errors as $key => $value) {
+        if ($key == $current_field) {
+            return 'form__item--invalid';
+        }
+    }
+};
+
 function check_add_form() {
     $required_fields = ['name', 'category', 'message', 'lot-rate', 'lot-step', 'lot-date'];
     $errors = [];
@@ -52,6 +66,19 @@ function check_add_form() {
       // else if ($_POST['lot-date'] <= strtotime("+1 day")) {
       //   $errors['lot-date'] = 'Укажите дату позднее сегодняшнего дня';
       // }
+    }
+
+    return $errors;
+};
+
+function check_login_form() {
+    $required_fields = ['email', 'password'];
+    $errors = [];
+
+    foreach ($required_fields as $field) {
+      if (empty($_POST[$field])) {
+        $errors[$field] = 'Поле не заполнено';
+      }
     }
 
     return $errors;
