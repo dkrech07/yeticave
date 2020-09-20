@@ -65,6 +65,7 @@ function get_next_day() {
      'message' => 'Тестовое описание',
      'price' => '7500',
      'image_url' => 'img/lot-5.jpg',
+      'lot-step' =>'120',
      'lot_end_time' => get_next_day(),
    ],
    [
