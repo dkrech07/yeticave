@@ -15,8 +15,6 @@
 
     setcookie($counter_id, $counter_value, $expire, $path);
 
-
-
     // get_lot_count($counter_id, $counter_value, $lot_history);
     // print_r(get_lot_count($counter_id, $counter_value, $lot_history));
     // print($counter_id . ' ');

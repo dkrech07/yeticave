@@ -35,6 +35,10 @@ function get_lot_time($lot_end_time) {
   return [$hours_time_lot, $minutes_time_lot];
 };
 
+function get_price($price) {
+  return number_format(ceil($price), 0, '.', ' ') . ' &#x20bd';
+};
+
 function check_add_form() {
     $required_fields = ['name', 'category', 'message', 'lot-rate', 'lot-step', 'lot-date'];
     $errors = [];

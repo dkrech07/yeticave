@@ -1,3 +1,7 @@
+<?php
+  require_once('./functions.php');
+?>
+
 <main class="container">
   <section class="promo">
     <h2 class="promo__title">Нужен стафф для катки?</h2>
@@ -28,12 +32,6 @@
         <h2>Открытые лоты</h2>
     </div>
 
-    <?php
-      $get_price = function ($price) {
-        return number_format(ceil($price), 0, '.', ' ') . ' &#x20bd';
-      };
-    ?>
-
     <ul class="lots__list">
       <?php foreach ($ads_list as $ads_number => $ads): ?>
         <li class="lots__item lot">
@@ -51,7 +49,7 @@
                 <div class="lot__state">
                     <div class="lot__rate">
                         <span class="lot__amount">Стартовая цена</span>
-                        <span class="lot__cost"><?= $get_price($ads['price']) ?></span>
+                        <span class="lot__cost"><?= get_price($ads['price']) ?></span>
                     </div>
                     <div class="lot__timer timer">
                       <?php $lot_time = get_lot_time($ads['lot_end_time']) ?>
