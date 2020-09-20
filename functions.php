@@ -56,10 +56,3 @@ function check_add_form() {
 
     return $errors;
 };
-
-// function get_lot_count($counter_id, $counter_value, $lot_history) {
-//     $lot_count = [$counter_id, $counter_value];
-//     array_push($lot_history, $lot_count);
-//
-//     return $lot_history;
-// }
