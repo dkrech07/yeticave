@@ -83,3 +83,42 @@ function check_login_form() {
 
     return $errors;
 };
+
+function authentication_login_form($email, $password, $users) {
+    $errors = [true, true]; // [Логин, Пароль]
+    if ($email && $password) {
+      foreach ($users as $uers_id => $user) {
+        if ($email == $user['email']) {
+
+          if (password_verify($password, $user['password'])) {
+            require_once('userdata.php');
+            $is_auth = 1;
+            $user_name = $user['name'];
+            $user_avatar = 'img/user.jpg';
+
+            header('Location: index.php');
+            exit();
+          } else {
+            $errors[0] = false;
+            return $errors;
+          }
+
+        }
+      }
+      $errors[1] = false;
+      return $errors;
+  }
+};
+
+function check_login_error ($login_info, $input) {
+
+  if ($login_info[0] == true && $input == 'email') {
+    return "<span style='color: red;'>Пользователь с таким Email не найден</span>";
+  }
+
+  if ($login_info == true && $input == 'password') {
+    return "<span style='color: red;'>Неверный пароль</span>";
+  }
+
+  return '';
+};
