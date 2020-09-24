@@ -2,6 +2,17 @@
   require_once('data.php');
   require_once('functions.php');
 
+  session_start();
+
+  if ($_SESSION) {
+      $is_auth = 1;
+      $username = $_SESSION['user']['name'];
+  } else {
+      $is_auth = 0;
+      $username = 'Неопознанный пользователь';
+  }
+
+
     $errors = check_add_form();
 
     if (count($errors)) {

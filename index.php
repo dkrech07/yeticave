@@ -3,9 +3,8 @@
   require_once('data.php');
 
   session_start();
-  print_r($_SESSION['name']);
 
-  if ($_SESSION['user']['name']) {
+  if ($_SESSION) {
       $is_auth = 1;
       $username = $_SESSION['user']['name'];
   } else {

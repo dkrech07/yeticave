@@ -5,6 +5,14 @@
 
   session_start();
 
+  if ($_SESSION) {
+      $is_auth = 1;
+      $username = $_SESSION['user']['name'];
+  } else {
+      $is_auth = 0;
+      $username = 'Неопознанный пользователь';
+  }
+
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   	$form = $_POST;
 
@@ -33,7 +41,7 @@
   		$page_content = include_template('login.php', ['form' => $form, 'errors' => $errors]);
   	}
   	else {
-  		header("Location: /yeticave/index.php");
+  		header("Location: /index.php");
   		exit();
   	}
   }
@@ -48,8 +56,10 @@
 
   $layout_content = include_template('layout.php', [
   	'content'    => $page_content,
-  	'categories' => [],
-  	'title'      => 'Авторизация'
+  	'title'      => 'Авторизация',
+    'ads_categories' => $ads_categories,
+    'is_auth' => $is_auth,
+    'username' => $username,
   ]);
 
   print($layout_content);

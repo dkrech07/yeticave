@@ -4,6 +4,16 @@
 
   $id = $_GET['id'];
 
+  session_start();
+
+  if ($_SESSION) {
+      $is_auth = 1;
+      $username = $_SESSION['user']['name'];
+  } else {
+      $is_auth = 0;
+      $username = 'Неопознанный пользователь';
+  }
+
   foreach ($ads_list as $ads_number => $ads) {
     if (isset($id) && is_numeric($id) && $id == $ads_number) {
       $page_content = include_template('lot.php', ['ads_list' => $ads_list, 'id' => $id]);
