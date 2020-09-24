@@ -15,7 +15,7 @@
        'title' => 'История просмотров',
        'ads_categories' => $ads_categories,
        'is_auth' => $is_auth,
-       'user_name' => $user_name,
+       'username' => $username,
        'user_avatar' => $user_avatar,
      ]);
 

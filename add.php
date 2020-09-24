@@ -12,7 +12,7 @@
          'title' => 'Добавить объявление',
          'ads_categories' => $ads_categories,
          'is_auth' => $is_auth,
-         'user_name' => $user_name,
+         'username' => $username,
          'user_avatar' => $user_avatar,
         ]);
     } else {
@@ -39,7 +39,7 @@
         'title' => $ads_list[count($ads_list) - 1]['name'],
         'ads_categories' => $ads_categories,
         'is_auth' => $is_auth,
-        'user_name' => $user_name,
+        'username' => $username,
         'user_avatar' => $user_avatar,
       ]);
     }
