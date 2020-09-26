@@ -2,17 +2,7 @@
   require_once('data.php');
   require_once('functions.php');
 
-  session_start();
-
-  if ($_SESSION) {
-      $is_auth = 1;
-      $username = $_SESSION['user']['name'];
-  } else {
-      $is_auth = 0;
-      $username = 'Неопознанный пользователь';
-  }
-
-
+    $auth_and_name= checkAuth();
     $errors = check_add_form();
 
     if (count($errors)) {
@@ -22,8 +12,8 @@
          'content' => $page_content,
          'title' => 'Добавить объявление',
          'ads_categories' => $ads_categories,
-         'is_auth' => $is_auth,
-         'username' => $username,
+         'is_auth' => $auth_and_name[0],
+         'username' => $auth_and_name[1],
          'user_avatar' => $user_avatar,
         ]);
     } else {
@@ -49,8 +39,8 @@
         'content' => $page_content,
         'title' => $ads_list[count($ads_list) - 1]['name'],
         'ads_categories' => $ads_categories,
-        'is_auth' => $is_auth,
-        'username' => $username,
+        'is_auth' => $auth_and_name[0],
+        'username' => $auth_and_name[1],
         'user_avatar' => $user_avatar,
       ]);
     }
