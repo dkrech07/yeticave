@@ -10,7 +10,6 @@
     }
 
     setcookie($counter_id, $counter_value, $expire, $path);
-    print_r($_COOKIE);
  ?>
 
 <main>

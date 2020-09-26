@@ -29,7 +29,6 @@
   			$_SESSION['user'] = $user;
   		}
   		else {
-            print_r($_SESSION['user']['name']);
   			$errors['password'] = 'Неверный пароль';
   		}
   	}
