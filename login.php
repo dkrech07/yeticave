@@ -59,6 +59,7 @@
     'ads_categories' => $ads_categories,
     'is_auth' => $is_auth,
     'username' => $username,
+    'user_avatar' => $user_avatar,
   ]);
 
   print($layout_content);
