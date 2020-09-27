@@ -2,7 +2,9 @@
   require_once('data.php');
   require_once('functions.php');
 
-    $auth_and_name= checkAuth();
+  $auth_and_name= checkAuth();
+
+  if ($auth_and_name[0]) {
     $errors = check_add_form();
 
     if (count($errors)) {
@@ -46,3 +48,7 @@
     }
 
     print($layout_content);
+  } else {
+    header('HTTP/1.0 403 Forbidden');
+    echo 'Нужно авторизоваться, чтобы добавилть лот.';
+  }

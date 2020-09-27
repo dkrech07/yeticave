@@ -40,7 +40,7 @@
   		$page_content = include_template('login.php', ['form' => $form, 'errors' => $errors]);
   	}
   	else {
-  		header("Location: /yeticave/index.php");
+  		header("Location: /index.php");
   		exit();
   	}
   }

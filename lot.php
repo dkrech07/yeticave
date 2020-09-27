@@ -7,7 +7,7 @@
 
   foreach ($ads_list as $ads_number => $ads) {
     if (isset($id) && is_numeric($id) && $id == $ads_number) {
-      $page_content = include_template('lot.php', ['ads_list' => $ads_list, 'id' => $id]);
+      $page_content = include_template('lot.php', ['ads_list' => $ads_list, 'id' => $id, 'is_auth' => $auth_and_name[0]]);
 
       $layout_content = include_template('layout.php', [
         'content' => $page_content,
